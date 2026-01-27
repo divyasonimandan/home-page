@@ -1,0 +1,103 @@
+---
+// Skills section with creative presentation
+
+const skills = [
+  { name: 'React', category: 'frontend', level: 'primary' },
+  { name: 'TypeScript', category: 'language', level: 'primary' },
+  { name: 'Astro', category: 'frontend', level: 'primary' },
+  { name: 'JavaScript', category: 'language', level: 'primary' },
+  { name: 'HTML', category: 'frontend', level: 'core' },
+  { name: 'CSS', category: 'frontend', level: 'core' },
+  { name: 'Node.js', category: 'backend', level: 'secondary' },
+  { name: 'Express', category: 'backend', level: 'secondary' },
+  { name: 'SQL', category: 'backend', level: 'secondary' },
+  { name: 'Tailwind', category: 'styling', level: 'primary' },
+  { name: 'Git', category: 'tools', level: 'core' },
+  { name: 'REST APIs', category: 'backend', level: 'secondary' },
+];
+
+const marqueeSkills = [...skills, ...skills]; // Duplicate for seamless loop
+---
+
+<section class="py-32 overflow-hidden">
+  <!-- Marquee banner -->
+  <div class="relative py-8 bg-ink dark:bg-ink-dark -rotate-1 mb-24">
+    <div class="flex animate-marquee whitespace-nowrap">
+      {marqueeSkills.map((skill) => (
+        <span class="mx-8 text-2xl sm:text-3xl font-display text-paper dark:text-paper-dark">
+          {skill.name}
+          <span class="text-accent mx-4">✦</span>
+        </span>
+      ))}
+    </div>
+  </div>
+  
+  <div class="max-w-5xl mx-auto px-6">
+    <!-- Section header -->
+    <div class="flex items-center gap-4 mb-16">
+      <span class="font-mono text-sm text-accent">02</span>
+      <h2 class="font-display text-3xl sm:text-4xl text-ink dark:text-ink-dark">What I work with</h2>
+      <span class="flex-1 h-px bg-ink/10 dark:bg-ink-dark/10"></span>
+    </div>
+    
+    <!-- Skills grid with unique presentation -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {skills.map((skill, index) => (
+        <div 
+          class:list={[
+            "group relative p-6 rounded-2xl border transition-all duration-300 cursor-default",
+            skill.level === 'primary' 
+              ? "border-accent/30 bg-accent/5 hover:bg-accent/10" 
+              : "border-ink/10 dark:border-ink-dark/10 bg-surface/50 dark:bg-surface-dark/50 hover:border-accent/30"
+          ]}
+          style={`animation-delay: ${index * 50}ms`}
+        >
+          <!-- Skill name -->
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-medium text-ink dark:text-ink-dark group-hover:text-accent transition-colors">
+              {skill.name}
+            </h3>
+            
+            <!-- Level indicator -->
+            <div class="flex gap-1">
+              {[1, 2, 3].map((dot) => (
+                <div 
+                  class:list={[
+                    "w-2 h-2 rounded-full transition-colors",
+                    dot <= (skill.level === 'primary' ? 3 : skill.level === 'secondary' ? 2 : 1)
+                      ? "bg-accent"
+                      : "bg-ink/10 dark:bg-ink-dark/10"
+                  ]}
+                />
+              ))}
+            </div>
+          </div>
+          
+          <!-- Category tag -->
+          <span class="mt-2 inline-block font-mono text-xs uppercase tracking-wider text-stone dark:text-stone-dark">
+            {skill.category}
+          </span>
+          
+          <!-- Hover decoration -->
+          <div class="absolute top-2 right-2 w-6 h-6 border-t border-r border-transparent group-hover:border-accent transition-colors duration-300"></div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Philosophy note -->
+    <div class="mt-16 p-8 bg-surface dark:bg-surface-dark rounded-2xl">
+      <blockquote class="flex gap-4">
+        <span class="font-display text-5xl text-accent leading-none">"</span>
+        <div class="space-y-2">
+          <p class="text-lg text-ink dark:text-ink-dark">
+            I believe in using the right tool for the job, not the trendiest one. 
+            That said, I'm always excited to learn what's next.
+          </p>
+          <footer class="font-mono text-sm text-stone dark:text-stone-dark">
+            — My approach to tech stacks
+          </footer>
+        </div>
+      </blockquote>
+    </div>
+  </div>
+</section>
