@@ -37,98 +37,47 @@ const {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
 		<title>{title}</title>
-
-		<!-- Theme script (prevents flash) -->
-		<script is:inline>
-			const theme =
-				localStorage.getItem("theme") ||
-				(window.matchMedia("(prefers-color-scheme: dark)").matches
-					? "dark"
-					: "light");
-			document.documentElement.classList.toggle("dark", theme === "dark");
-		</script>
 	</head>
-	<body class="bg-paper dark:bg-paper-dark min-h-screen">
+	<body class="bg-paper min-h-screen">
 		<!-- Grain overlay -->
 		<div class="grain" aria-hidden="true"></div>
 
 		<!-- Navigation -->
 		<nav
-			class="fixed top-0 left-0 right-0 z-50 px-6 py-4 backdrop-blur-md bg-paper/80 dark:bg-paper-dark/80 border-b border-ink/5 dark:border-ink-dark/5"
+			class="fixed top-0 left-0 right-0 z-50 px-6 py-4 backdrop-blur-md bg-paper/80 border-b border-ink/5"
 		>
 			<div class="max-w-5xl mx-auto flex items-center justify-between">
 				<!-- Logo/Name -->
 				<a
 					href="/"
-					class="font-display text-xl text-ink dark:text-ink-dark hover:text-accent transition-colors"
+					class="font-display text-xl text-ink hover:text-accent transition-colors"
 				>
 					dsm<span class="text-accent">.</span>
 				</a>
 
 				<!-- Nav Links -->
-				<div class="flex items-center gap-8">
-					<ul
-						class="hidden sm:flex items-center gap-6 text-sm font-medium text-stone dark:text-stone-dark"
-					>
-						<li>
-							<a
-								href="#about"
-								class="link-underline hover:text-ink dark:hover:text-ink-dark transition-colors"
-								>About</a
-							>
-						</li>
-						<li>
-							<a
-								href="#work"
-								class="link-underline hover:text-ink dark:hover:text-ink-dark transition-colors"
-								>Work</a
-							>
-						</li>
-						<li>
-							<a
-								href="#contact"
-								class="link-underline hover:text-ink dark:hover:text-ink-dark transition-colors"
-								>Contact</a
-							>
-						</li>
-					</ul>
-
-					<!-- Theme Toggle -->
-					<button
-						id="theme-toggle"
-						aria-label="Toggle dark mode"
-						class="p-2 rounded-full hover:bg-surface dark:hover:bg-surface-dark transition-colors"
-					>
-						<!-- Sun icon (dark mode) -->
-						<svg
-							class="hidden dark:block w-5 h-5 text-ink-dark"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
+				<ul
+					class="hidden sm:flex items-center gap-6 text-sm font-medium text-stone"
+				>
+					<li>
+						<a
+							href="#about"
+							class="link-underline hover:text-ink transition-colors">About</a
 						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="1.5"
-								d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-							></path>
-						</svg>
-						<!-- Moon icon (light mode) -->
-						<svg
-							class="block dark:hidden w-5 h-5 text-ink"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
+					</li>
+					<li>
+						<a
+							href="#work"
+							class="link-underline hover:text-ink transition-colors">Work</a
 						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="1.5"
-								d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-							></path>
-						</svg>
-					</button>
-				</div>
+					</li>
+					<li>
+						<a
+							href="#contact"
+							class="link-underline hover:text-ink transition-colors">Contact</a
+						>
+					</li>
+				</ul>
 			</div>
 		</nav>
 
@@ -138,9 +87,9 @@ const {
 		</main>
 
 		<!-- Footer -->
-		<footer class="py-12 px-6 border-t border-ink/5 dark:border-ink-dark/5">
+		<footer class="py-12 px-6 border-t border-ink/5">
 			<div
-				class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-stone dark:text-stone-dark"
+				class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-stone"
 			>
 				<p>© 2026 Divya Soni Mandan. Crafted with intention.</p>
 				<div class="flex items-center gap-4">
@@ -159,14 +108,5 @@ const {
 				</div>
 			</div>
 		</footer>
-
-		<!-- Theme toggle script -->
-		<script>
-			const toggle = document.getElementById("theme-toggle");
-			toggle?.addEventListener("click", () => {
-				const isDark = document.documentElement.classList.toggle("dark");
-				localStorage.setItem("theme", isDark ? "dark" : "light");
-			});
-		</script>
 	</body>
 </html>

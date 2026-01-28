@@ -10,12 +10,6 @@
 	--color-accent-muted: #f48c06;
 	--color-surface: #f0ece6;
 
-	/* Dark mode variants */
-	--color-ink-dark: #faf8f5;
-	--color-paper-dark: #141414;
-	--color-stone-dark: #9a958f;
-	--color-surface-dark: #1e1e1e;
-
 	/* Typography scale */
 	--font-display: "Instrument Serif", Georgia, serif;
 	--font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -31,20 +25,12 @@ html {
 	background-color: var(--color-paper);
 }
 
-html.dark {
-	background-color: var(--color-paper-dark);
-}
-
 body {
 	font-family: var(--font-body);
 	color: var(--color-ink);
 	line-height: 1.6;
 	-webkit-font-smoothing: antialiased;
 	overflow-x: hidden;
-}
-
-html.dark body {
-	color: var(--color-ink-dark);
 }
 
 /* Custom selection color */
@@ -167,10 +153,6 @@ html.dark body {
 .card-lift:hover {
 	transform: translateY(-4px);
 	box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
-}
-
-html.dark .card-lift:hover {
-	box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
 }
 
 /* Focus styles */
