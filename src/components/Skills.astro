@@ -2,18 +2,18 @@
 // Skills section with creative presentation
 
 const skills = [
-  { name: 'React', category: 'frontend', level: 'primary' },
-  { name: 'TypeScript', category: 'language', level: 'primary' },
-  { name: 'Astro', category: 'frontend', level: 'primary' },
-  { name: 'JavaScript', category: 'language', level: 'primary' },
-  { name: 'HTML', category: 'frontend', level: 'core' },
-  { name: 'CSS', category: 'frontend', level: 'core' },
-  { name: 'Node.js', category: 'backend', level: 'secondary' },
-  { name: 'Express', category: 'backend', level: 'secondary' },
-  { name: 'SQL', category: 'backend', level: 'secondary' },
-  { name: 'Tailwind', category: 'styling', level: 'primary' },
-  { name: 'Git', category: 'tools', level: 'core' },
-  { name: 'REST APIs', category: 'backend', level: 'secondary' },
+  { name: 'React', category: 'frontend', level: 'expert' },
+  { name: 'TypeScript', category: 'language', level: 'intermediate' },
+  { name: 'Astro', category: 'frontend', level: 'expert' },
+  { name: 'JavaScript', category: 'language', level: 'expert' },
+  { name: 'HTML', category: 'frontend', level: 'expert' },
+  { name: 'CSS', category: 'frontend', level: 'expert' },
+  { name: 'Node.js', category: 'backend', level: 'intermediate' },
+  { name: 'Express', category: 'backend', level: 'intermediate' },
+  { name: 'SQL', category: 'backend', level: 'intermediate' },
+  { name: 'Tailwind', category: 'styling', level: 'intermediate' },
+  { name: 'Git', category: 'tools', level: 'intermediate' },
+  { name: 'REST APIs', category: 'backend', level: 'intermediate' },
 ];
 
 const marqueeSkills = [...skills, ...skills]; // Duplicate for seamless loop
@@ -46,7 +46,7 @@ const marqueeSkills = [...skills, ...skills]; // Duplicate for seamless loop
         <div 
           class:list={[
             "group relative p-6 rounded-2xl border transition-all duration-300 cursor-default",
-            skill.level === 'primary' 
+            skill.level === 'expert' 
               ? "border-accent/30 bg-accent/5 hover:bg-accent/10" 
               : "border-ink/10 bg-surface/50 hover:border-accent/30"
           ]}
@@ -64,7 +64,7 @@ const marqueeSkills = [...skills, ...skills]; // Duplicate for seamless loop
                 <div 
                   class:list={[
                     "w-2 h-2 rounded-full transition-colors",
-                    dot <= (skill.level === 'primary' ? 3 : skill.level === 'secondary' ? 2 : 1)
+                    dot <= (skill.level === 'expert' ? 3 : skill.level === 'intermediate' ? 2 : 1)
                       ? "bg-accent"
                       : "bg-ink/10"
                   ]}
